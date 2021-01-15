@@ -16,8 +16,9 @@ console.log('This is new array ' + dataNew);
 var dataOld = [34, true, "Peter", 1992];
 var dataNew = [];
 
-for (var i = 0, x = dataOld.length - 1; i < x; i++, x--) {
-    [dataNew[i], dataNew[x]] = [dataOld[x], dataOld[i]];
+for (var i = 0; i < dataOld.length; i++) {
+    dataNew[i] = dataOld[dataOld.length - 1];
+    dataNew[i] = dataOld[dataOld.length - dataNew.length];
 }
 
 console.log('Repack old array to the new one, in the reverse order');
@@ -31,7 +32,7 @@ var dataOld = [34, true, "Peter", 1992];
 var dataNew = [12, "Jack"];
 
 for (var i = 0; i < dataOld.length; i++) {
-    dataNew.push(dataOld[i]);
+    dataNew[dataNew.length] = dataOld[i];
 }
 
 console.log('Repack old array to the new one, so the data from two arrays is joined, starting with existing data from the new one');
@@ -42,7 +43,14 @@ console.log('This is new array ' + dataNew);
 // Create a new array that contains data from both arrays, starting with data from array a.
 var a = [12, 56, 32, 44, 69];
 var b = [88, 7, 13];
-var newArray = a.concat(b);
+var newArray = [];
+
+for (var i = 0; i < a.length; i++) {
+    newArray[i] = a[i];
+    if (b[i]) {
+        newArray[i + a.length] = b[i];
+    }
+}
 
 console.log('Create a new array that contains data from both arrays, starting with data from array a.');
 console.log('This is new array ' + newArray);
