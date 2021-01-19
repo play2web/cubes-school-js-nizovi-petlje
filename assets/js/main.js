@@ -85,12 +85,11 @@ console.log('This is new array ' + alternateArray);
 // ******
 
 console.log('Console log next pattern (youa re allowed to use only single *)');
+
+var str = '';
 for (var i = 1; i < 7; i++) {
-    var str = '';
-    for (var j = i; j >= 1; j--) {
         str += '*';
-    }
-    console.log(str);
+        console.log(str);
 }
 
 // TASK 7
